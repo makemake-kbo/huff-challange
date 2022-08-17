@@ -1,0 +1,18 @@
+{
+  "file": {
+    "path": "block.huff",
+    "source": "#define macro BLOCK() = takes (0) returns (1) {\n    number\n    returndatasize\n    mstore\n    0x20\n    returndatasize\n    return\n}\n\n#define macro MAIN() = takes (0) returns (0) {\n    0x00 calldataload 0xE0 shr\n    dup1 0x18160ddd eq totalSupply jumpi // stolen from huff erc20 example /shrug\n\n    totalSupply:\n        BLOCK()\n}",
+    "access": null,
+    "dependencies": []
+  },
+  "bytecode": "60198060093d393df360003560e01c806318160ddd14610011575b433d5260203df3",
+  "runtime": "60003560e01c806318160ddd14610011575b433d5260203df3",
+  "abi": {
+    "constructor": null,
+    "functions": {},
+    "events": {},
+    "errors": {},
+    "receive": false,
+    "fallback": false
+  }
+}

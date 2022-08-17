@@ -1,0 +1,16 @@
+#define macro BLOCK() = takes (0) returns (1) {
+    number
+    returndatasize
+    mstore
+    0x20
+    returndatasize
+    return
+}
+
+#define macro MAIN() = takes (0) returns (0) {
+    0x00 calldataload 0xE0 shr
+    dup1 0x18160ddd eq totalSupply jumpi // stolen from huff erc20 example /shrug
+
+    totalSupply:
+        BLOCK()
+}
